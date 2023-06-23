@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="46956a18-4d95-4bec-879d-d1931a474d13" name="dojo Mapping">
+      <data-sources db="726e2d2c-ed41-41f5-9d05-76f8ae880325" ddl="b30df6e8-c836-47ac-8ebd-182f8aa114c7" />
+      <scope>
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="b30df6e8-c836-47ac-8ebd-182f8aa114c7" />
+          <option name="name" value="dojo (DDL)" />
+          <option name="dbmsName" value="SQLITE" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/dojo.db" />
+            </array>
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
