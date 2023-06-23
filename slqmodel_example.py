@@ -7,16 +7,16 @@ from sqlmodel import Field, SQLModel, create_engine
 
 class Dojo(SQLModel, table=True):
     id: Optional[UUID] = Field(default_factory=uuid4, primary_key=True)
-    name: str
-    sensei_name: str
-    sensei_lastname: str
+    name: str = Field(nullable=False, max_length=50)
+    sensei_name: str = Field(nullable=False, max_length=50)
+    sensei_lastname: str = Field(nullable=False, max_length=50)
     path_logo: str
 
 
 class Torneo(SQLModel, table=True):
     id: Optional[UUID] = Field(default_factory=uuid4, primary_key=True)
     name: str
-    dt_created: datetime
+    dt_created: datetime = Field(default_factory=datetime.utcnow, nullable=False)
     dt_schedule: datetime
 
     id_dojo: Optional[UUID] = Field(default=None, foreign_key="dojo.id")
@@ -24,8 +24,8 @@ class Torneo(SQLModel, table=True):
 
 class Cinturon(SQLModel, table=True):
     id: Optional[UUID] = Field(default_factory=uuid4, primary_key=True)
-    description: str
-    range_level: str
+    description: str = Field(nullable=False, max_length=20)
+    range_level: str = Field(max_length=20)
 
 
 class Puntaje(SQLModel, table=True):
@@ -37,23 +37,23 @@ class Puntaje(SQLModel, table=True):
 
 class Competidor(SQLModel, table=True):
     id: Optional[UUID] = Field(default_factory=uuid4, primary_key=True)
-    name: str
-    lastname: str
-    sex: str
+    name: str = Field(max_length=50, nullable=False)
+    lastname: str = Field(max_length=50, nullable=False)
+    gender: str = Field(max_length=15, nullable=False)
     cinturon_id: UUID = Field(foreign_key="cinturon.id", nullable=False)
 
 
 class Competicion(SQLModel, table=True):
     id: Optional[UUID] = Field(default_factory=uuid4, primary_key=True)
-    name: str
-    dt_created: datetime
+    name: str = Field(max_length=100, nullable=False)
+    dt_created: datetime = Field(default_factory=datetime.utcnow, nullable=False)
 
 
 class Categoria(SQLModel, table=True):
     id: Optional[UUID] = Field(default_factory=uuid4, primary_key=True)
-    description: str
-    age_min: int
-    age_max: int
+    description: str = Field(max_length=50, nullable=False)
+    age_min: int = Field(nullable=False)
+    age_max: int = Field(nullable=False)
     competicion_id: UUID = Field(foreign_key="competicion.id", nullable=False)
     torneo_id: UUID = Field(foreign_key="torneo.id", nullable=False)
 
