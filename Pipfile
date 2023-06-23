@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 sqlmodel = "*"
-sqlalchemy = "*"
+sqlalchemy = "==1.4.48"
 
 [dev-packages]
 
