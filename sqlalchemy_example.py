@@ -54,6 +54,7 @@ class Puntaje(Base):
     dt_update = Column(DateTime, nullable=True)
 
 
+# MANY TO MANY
 class Competidor(Base):
     __tablename__ = "competidor"
     id = Column(String(36), primary_key=True, default=str(uuid4()), unique=True)
